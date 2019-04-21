@@ -1,4 +1,4 @@
 const express = require('express')
 const app = express()
-app.use(express.static('public2'))
+app.use(express.static('/var/www/html/'))
 app.listen(3000, () => console.log('Server running on port 3000'))

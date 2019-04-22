@@ -10,7 +10,7 @@ module.exports = {
       key: '~/.ssh/jim1-storagekey.pem',
       ref: 'origin/master',
       repo: 'git@github.com:zyi103/storage.git',
-      path: '/home/ubuntu/storage',
+      path: '/var/www/storage/html',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }

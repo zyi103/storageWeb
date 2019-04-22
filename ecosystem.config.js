@@ -7,10 +7,10 @@ module.exports = {
     production: {
       user: 'ubuntu',
       host: 'ec2-18-191-231-230.us-east-2.compute.amazonaws.com',
-      key: '~/.ssh/jim1-storagekey.pem',
+      key: '~/.ssh/storage.pem',
       ref: 'origin/master',
       repo: 'git@github.com:zyi103/storage.git',
-      path: '/var/www/storage/html',
+      path: '/home/ubuntu/storage',
       'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }

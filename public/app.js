@@ -1,5 +1,7 @@
-document.addEventListener("DOMContentLoaded", event => {
-    
+document.addEventListener("DOMContentLoaded", () => {
+    const dbRef = firebase.database().ref('data');
+        
+    dbRef.on('value', fillTable)
 })
 
 function googleLogin() {
@@ -11,20 +13,16 @@ function googleLogin() {
                 const user = result.user;  
                 document.write(`Username:${user.displayName}`)
             })  
-
-    const db = firebase.database();
-    const dbRef = db.ref();
-        
-    dbRef.on('value', data => fillTable(data))
 }
 
 function fillTable(data){
-
+        data = data.val()
+        
         // EXTRACT VALUE FOR HTML HEADER. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
         var col = [];
         for (var i = 0; i < data.length; i++) {
-            for (var key in mydataBooks[i]) {
+            for (var key in data[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
